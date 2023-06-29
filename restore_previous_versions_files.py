@@ -35,7 +35,7 @@ def main(bucket_name, input_prefix, output_prefix, modified_date):
     for page in page_iterator:
         extract_latest_versions(page, modified_date)
     copy_latest_files(bucket_name,output_prefix)
-    
+
 if __name__ == "__main__":
     BUCKET = sys.argv[1]
     inputPathPrefix = sys.argv[2]
