@@ -1,6 +1,6 @@
 import sys
-import boto3
 from datetime import datetime, timezone
+import boto3
 s3 = boto3.client('s3')
 latest_versions = {}
 
