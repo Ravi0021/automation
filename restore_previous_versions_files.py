@@ -27,7 +27,6 @@ def copy_latest_files(bucket_name, output_prefix):
         },
         Key=output_prefix+'/'+path_parts[-1]
         )
-        # print(f"Object key: {version['Key']}, version id: {version['VersionId']}, last modified: {version['LastModified']}")
 
 # main method
 def main(bucket_name, input_prefix, output_prefix, modified_date):
