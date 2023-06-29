@@ -1,3 +1,10 @@
+"""
+Script to extract the latest versions of files from an S3 bucket
+and copy them to another location.
+
+Author: Ravi Kushwah
+Date: 29-06-2023
+"""
 import sys
 from datetime import datetime, timezone
 import boto3
