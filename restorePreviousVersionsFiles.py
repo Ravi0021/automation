@@ -5,7 +5,7 @@ s3 = boto3.client('s3')
 latest_versions = {}
 
 # Extract all latest version of each file
-def extractLatestVersions(response,modified_date):
+def extract_latest_versions(response,modified_date):
     for version in response['Versions']:
         last_modified = version['LastModified']
         if last_modified < modified_date:
@@ -34,7 +34,7 @@ def main(bucket_name, input_prefix, output_prefix, modified_date):
     paginator = s3.get_paginator('list_object_versions')
     page_iterator = paginator.paginate(Bucket=bucket_name, Prefix=input_prefix)
     for page in page_iterator:
-        extractLatestVersions(page, modified_date)
+        extract_latest_versions(page, modified_date)
     copy_latest_files(bucket_name,output_prefix)
     
 
