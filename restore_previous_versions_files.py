@@ -10,7 +10,8 @@ def extract_latest_versions(response,modified_date):
         last_modified = version['LastModified']
         if last_modified < modified_date:
             key = version['Key']
-            if key not in latest_versions or latest_versions[key]['LastModified'] < version['LastModified']:
+            if key not in latest_versions or latest_versions[key]['LastModified'] \
+            < version['LastModified']:
                 latest_versions[key] = version
 
 # Copy all latest version of each file to another location
