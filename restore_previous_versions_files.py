@@ -32,7 +32,7 @@ def copy_latest_files(bucket_name, output_prefix):
 # main method
 def main(bucket_name, input_prefix, output_prefix, modified_date):
     paginator = s3.get_paginator('list_object_versions')
-    page_iterator = paginator.paginate(Bucket=bucket_name, Prefix=input_prefix)
+    page_iterator = paginator.paginate(Bucket = bucket_name, Prefix = input_prefix)
     for page in page_iterator:
         extract_latest_versions(page, modified_date)
     copy_latest_files(bucket_name,output_prefix)
