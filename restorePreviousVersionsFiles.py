@@ -39,9 +39,9 @@ def main(bucket_name, input_prefix, output_prefix, modified_date):
     
 
 if __name__ == "__main__":
-    bucket = sys.argv[1]
+    BUCKET = sys.argv[1]
     inputPathPrefix = sys.argv[2]
     outputPathPrefix = sys.argv[3]
     date = sys.argv[4]
     modifiedDate=datetime.fromisoformat(date).replace(tzinfo=timezone.utc)
-    main(bucket,inputPathPrefix,outputPathPrefix,modifiedDate)
+    main(BUCKET,inputPathPrefix,outputPathPrefix,modifiedDate)
