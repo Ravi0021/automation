@@ -14,7 +14,7 @@ def extractLatestVersions(response,modified_date):
                 latest_versions[key] = version
 
 # Copy all latest version of each file to another location
-def copyLatestFiles(bucket_name, output_prefix):
+def copy_latest_files(bucket_name, output_prefix):
     for version in latest_versions.values():
         file_path = version['Key']
         path_parts = file_path.split('/')
@@ -35,7 +35,7 @@ def main(bucket_name, input_prefix, output_prefix, modified_date):
     page_iterator = paginator.paginate(Bucket=bucket_name, Prefix=input_prefix)
     for page in page_iterator:
         extractLatestVersions(page, modified_date)
-    copyLatestFiles(bucket_name,output_prefix)
+    copy_latest_files(bucket_name,output_prefix)
     
 
 if __name__ == "__main__":
